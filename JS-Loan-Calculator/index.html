@@ -7,7 +7,13 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  </head>
+        <style>
+       #loader, #results {
+            display: none;
+            margin: 0 auto;
+        }
+        </style>
+</head>
   <body>
       <body class="bg-dark">
          <div class="container">
@@ -39,16 +45,10 @@
                     </div>
                 </form>
                 <!-- add loader -->
-                <!-- <div class='text-center'>
-                        <div class="spinner-grow text-info " role="status">
-                             <span class="sr-only">Loading...</span>
-                              </div>
-                 <div class="spinner-grow text-info " role="status">
+                <div class='text-center' >
+                    <div class="spinner-border text-secondary" id='loader' role="status">
                         <span class="sr-only">Loading...</span>
                       </div>
-                      <div class="spinner-grow text-info " role="status">
-                         <span class="sr-only">Loading...</span>
-                            </div> -->
                  <!-- results -->
                  <div id="results" class='pt-4'>
                     <h5>Results</h5>
@@ -70,7 +70,6 @@
                                 <input type="number" class="form-control" id='total-interest' disabled>
                                 </div>
                             </div>
-
                  </div>
                     </div>
                 </div>

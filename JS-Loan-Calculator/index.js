@@ -3,11 +3,19 @@
 
 
 //listen for submit
+//show loader as soon as this is clicked 
+document.getElementById('loan-form').addEventListener('submit', e => {
+    e.preventDefault();
+    //hide loader
+    document.getElementById('results').style.display = 'none'
+    
+    //show results
+    document.getElementById('loader').style.display = 'block'
 
+    setTimeout(calculateResults, 3000)
+})
 //calculate results function
-let calculateResults = e => {
-    document.getElementById('loan-form').addEventListener('submit', calculateResults)
-
+const calculateResults = () => {
     console.log('Loans are being verified by Bank of DC...')
 
 
@@ -34,15 +42,24 @@ if(isFinite(monthly)) {
      monthlyPayment.value = monthly.toFixed(2) 
      totalPayment.value = (monthly * calculatedPayments).toFixed(2) 
      totalInterest.value = ((monthly * calculatedPayments)-principal).toFixed(2)
+     //show results
+    document.getElementById('results').style.display = 'block'
+    //hide the spinner
+    document.getElementById('loader').style.display = 'none'
+    console.log(loader)
+
 } else {
     showError('Invalid numbers entered')
     }   
-    e.preventDefault();
 }
 
 
 //show error
 const showError = error => {
+     //hide results
+     document.getElementById('results').style.display = 'none'
+     //hide the spinner
+     document.getElementById('loader').style.display = 'none'
     //create div
     const errDiv = document.createElement('div')
     //get elemments
@@ -56,11 +73,14 @@ const showError = error => {
     card.insertBefore(errDiv, heading)
 
     //set timeout have something happen after a set amount of seconds; want it to clear error after 5 secs, must use milliseconds 1000 milliseconds = 1 second
-    setTimeout(clearError, 5000)
+    setTimeout(clearError, 3000)
 }
 
     //clear error
     const clearError = () =>  document.querySelector('.alert').remove();
 
-    console.log(calculateResults())
-    console.log(setTimeout(seconds))
+
+
+
+calculateResults()
+showError()
