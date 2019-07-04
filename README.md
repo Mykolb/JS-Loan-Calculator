@@ -2,6 +2,6 @@
 
 Practice project creating a loan calculator using:
 
-  -JavaScript
-  -Bootstrap
-  -Emoji Code
+  - JavaScript
+  - Bootstrap
+  - Emoji Code
